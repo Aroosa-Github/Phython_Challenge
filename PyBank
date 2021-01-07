@@ -22,7 +22,7 @@ with open(csvpath, newline = '') as csvfile:
     row = next(csvreader)
 
 # calculating the revenue and months
-    previous_profit = int(row[1])
+    profit_past = int(row[1])
     total_months = total_months + 1
     total_revenue = total_revenue + int(row[1])
     greatest_increase = int(row[1])
@@ -34,9 +34,9 @@ with open(csvpath, newline = '') as csvfile:
         total_revenue = total_revenue + int(row[1])
 
         # Calculating change
-        change = int(row[1]) - previous_profit
+        change = int(row[1]) - profit_past
         changes.append(change)
-        previous_profit = int(row[1])
+        profit_past = int(row[1])
         date_count.append(row[0])
         
         # greatest increase
@@ -62,4 +62,20 @@ with open(csvpath, newline = '') as csvfile:
     print("Total Amount  : $" + str(total_revenue))
     print("Average Change: $" + str(average_change))
     print("Greatest Increase in Profits :  " + greatest_increase_month, "(",max(changes),")")
-    print("Greatest Decrease in Profits :  " + greatest_decrease_month, "(", min(changes),")")
+    print("Greatest Decrease in Profits :  " + greatest_decrease_month, "(",min(changes),")")
+
+# output txt
+
+    f = open("output.txt", "w")
+f.write("Financial Analysis\n")
+f.write("----------------------------\n")        
+f.write("Total Months  : " + str(total_months) + "\n")
+f.write("Total Amount  : $" + str(total_revenue)+ "\n")
+f.write("Average Change: $" + str(format(average_change, '.2f')) + "\n")
+f.write("Greatest Increase in Profits :  " + greatest_increase_month 
+      + " ($" + str( max(changes) )+ ")" + ")\n")
+f.write("Greatest Decrease in Profits :  " + greatest_decrease_month 
+      + " ($" + str(min(changes)) + ")" + "\n")
+f.close()   
+        
+        
