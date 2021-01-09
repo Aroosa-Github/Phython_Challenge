@@ -3,7 +3,7 @@ import csv
 
 #csv path
 
-csvpath = os.path.join('Pybank_resources_budget_data.csv')
+csvpath = os.path.join('Resources' , 'budget_data.csv')
 
 # variables 
 changes =[]
@@ -67,16 +67,17 @@ with open(csvpath, newline = '') as csvfile:
     print("Greatest Decrease in Profits :  " + greatest_decrease_month, "(",min(changes),")")
 
 # output txt
+with open('output.txt', 'w') as outtxt:
 
-    f = open("output.txt", "w")
-f.write("Financial Analysis\n")
-f.write("----------------------------\n")        
-f.write("Total Months  : " + str(months_total) + "\n")
-f.write("Total Amount  : $" + str(revenue_total)+ "\n")
-f.write("Average Change: $" + str(format(average_change, '.2f')) + "\n")
-f.write("Greatest Increase in Profits :  " + greatest_increase_month 
+   # f = open("output.txt", "w")
+    outtxt.write("Financial Analysis\n")
+    outtxt.write("----------------------------\n")        
+    outtxt.write("Total Months  : " + str(months_total) + "\n")
+    outtxt.write("Total Amount  : $" + str(revenue_total)+ "\n")
+    outtxt.write("Average Change: $" + str(format(average_change, '.2f')) + "\n")
+    outtxt.write("Greatest Increase in Profits :  " + greatest_increase_month 
       + " ($" + str( max(changes) )+ ")" + ")\n")
-f.write("Greatest Decrease in Profits :  " + greatest_decrease_month 
+    outtxt.write("Greatest Decrease in Profits :  " + greatest_decrease_month 
       + " ($" + str(min(changes)) + ")" + "\n")
-f.close()   
+    outtxt.close()   
         

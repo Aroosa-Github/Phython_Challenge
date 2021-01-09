@@ -40,12 +40,10 @@ for name in clean_data:
 winner = winner_list[0]
 
 
-print ("Election Results ")
-print ("-------------------------------------------------------")
+print("Election Results ")
+print("-------------------------------------------------------")
 print("Total Votes  :  " + str(total_votes))
-print("-------------------------------------------------------------\n")
-
-
+print("-------------------------------------------------------------")
 print(candidates [0], "     " ":" + "   ",percentage_votes[0], "%", ":" + "   ", "(",total_num_votes[0],")")
 print(candidates [1], "   " ":" + "   ",percentage_votes[1], "%", ":" + "   ", "(",total_num_votes[1],")")
 print(candidates [2], "       " ":" + "   ",percentage_votes[2], "%", ":" + "   ", "(",total_num_votes[2],")")
@@ -59,9 +57,13 @@ print("-------------------------------------------------------------\n")
 
 with open('output.txt', 'w') as outtxt:
     
-    outtxt.write("Election Results") 
-    outtxt.write('\n' + "Total_votes" + str(total_votes)) 
+    outtxt.write ("Election Results\n ")
+    outtxt.write("-------------------------------------------------------\n")
+    outtxt.write("Total Votes  :  " + str(total_votes) )
+    outtxt.write("-\n------------------------------------------------------------\n")
     outtxt.write('\n' + str(candidates))
     outtxt.write('\n' + str(percentage_votes))
     outtxt.write('\n' + str(total_num_votes)) 
-    outtxt.write('\n' + "Winner:" + winner)    
+    outtxt.write("\n------------------------------------------------------------\n")
+    outtxt.write("Winner:" + " " + winner)
+    outtxt.write("\n-------------------------------------------------------------\n")  
