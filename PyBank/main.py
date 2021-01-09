@@ -69,7 +69,7 @@ with open(csvpath, newline = '') as csvfile:
 # output txt
 with open('output.txt', 'w') as outtxt:
 
-   # f = open("output.txt", "w")
+  
     outtxt.write("Financial Analysis\n")
     outtxt.write("----------------------------\n")        
     outtxt.write("Total Months  : " + str(months_total) + "\n")
